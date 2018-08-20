@@ -1,0 +1,13 @@
+h1.my_css_h1 {
+  color: black;
+  margin: auto;
+
+  width: 50%;
+  text-align: center;
+
+}
+
+
+.my_border {
+  border: 10px solid #ddd;
+}

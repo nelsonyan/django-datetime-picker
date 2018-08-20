@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+  {% block office_block%}
+    {% if amazon_output %}
+
+        <title>Amazon Output</title>
+        <table class = 'table table-striped table-hover my_border' id = 'my_table'>
+
+          <thead>
+            <tr>
+              <th><button type="button" class = ' btn btn-info' onclick = 'sortTable(0)'>PO</button></th>
+              <th><button type="button" class = ' btn btn-info' onclick = 'sortTable(1)'>Date</button></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for AO in amazon_output %}
+              <tr>
+                <td>{{AO.po}}</td>
+                <td>{{AO.date_time}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+  
+    {% else %}
+      <p class = 'bg-primary'>Amazon issue not found</p>
+    {% endif %}
+  {% endblock %}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+  {% block office_block %}
+    <title>Input</title>
+    <!-- <style media="screen"></style> -->
+      <!-- css last minute on demand -->
+    <div class="jumbotron">
+      <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+
+        <h1 class = 'my_css_h1'>Enter Marklyn Staff</h1>
+        <br>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <table class = 'table table-hover'>
+                {% for my_divider in employee_in %}
+                  {% if forloop.counter <= 6 %}
+                    <tr>
+                      <td>{{ my_divider.label }}</td>
+                      <td>{{ my_divider }}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              </table>
+            </div>
+            <div class="col-lg-6">
+              <table class = 'table table-hover'>
+                {% for my_divider in employee_in %}
+                  {% if forloop.counter > 6 %}
+                    <tr>
+                      <td>{{ my_divider.label }}</td>
+                      <td>{{my_divider}}</td>
+                    </tr>
+                  {% endif %}
+                {% endfor %}
+              </table>
+            </div>
+          </div>
+          <input type="submit" class = 'btn btn-secondary' value="Submit">
+        </div>
+      </form>
+    </div>
+  {% endblock %}
