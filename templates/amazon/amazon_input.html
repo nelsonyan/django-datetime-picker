@@ -1,12 +1,22 @@
-<!DOCTYPE html>
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block extra_css %}
+{{ amazon_in.media.css }}
+{% endblock %}
+
+{% block extra_js %}
+{{ amazon_in.media.js }}
+{% endblock %}
+
+
   {% block office_block %}
     <title>Amazon Input</title>
     <div class="jumbotron">
       <form method="post">
         {% csrf_token %}
         <table class = 'table table-hover'>
-          {{amazon_in}}
+          {% bootstrap_form amazon_in %}
         </table>
         <input type="submit" class = 'btn btn-secondary' value="Submit">
       </form>
